@@ -8,8 +8,8 @@ import com.badlogic.gdx.math.Rectangle;
 public class NaveJugador extends Nave {
 	private int puntaje;
 
-	public NaveJugador(int vida, Rectangle hitbox, Sound elim, Texture spr, Sound death, Sound hit) {
-		super(vida, hitbox, elim, spr, death, hit);
+	public NaveJugador(int x,int y,int vida, Rectangle hitbox, Sound elim, Texture spr, Sound death, Sound hit) {
+		super(x,y,vida, hitbox, elim, spr, death, hit);
 		this.puntaje = 0;
 	}
 

@@ -10,11 +10,11 @@ public class Obstaculo extends Entidad {
 	private int velY;
 	private int magnitudVel;
 
-	public Obstaculo(int vida, Rectangle hitbox, Sound elim, Texture spr, int x, int y, int size, int mag){
-		super(vida, hitbox, elim, spr);
+	public Obstaculo(int x,int y,int vida, Rectangle hitbox, Sound elim, Texture spr, int velX, int velY, int size, int mag){
+		super(x,y,vida, hitbox, elim, spr);
 		this.size = size;
-		this.velX = x;
-		this.velY = y;
+		this.velX = velX;
+		this.velY = velY;
 		this.magnitudVel = mag;
 	}
 

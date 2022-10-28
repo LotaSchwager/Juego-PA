@@ -10,8 +10,12 @@ public abstract class Entidad {
 	private Rectangle hitbox;
 	private Sound eliminacion;
 	private Sprite aspecto;
+	private int x;
+	private int y;
 	
-	public Entidad(int vida, Rectangle hitbox, Sound elim, Texture spr){
+	public Entidad(int x,int y,int vida, Rectangle hitbox, Sound elim, Texture spr){
+		this.x=x;
+		this.y=y;
 		this.vida = vida;
 		this.hitbox = hitbox;
 		this.eliminacion = elim;

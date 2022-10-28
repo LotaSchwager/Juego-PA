@@ -12,8 +12,8 @@ public abstract class Nave extends Entidad implements Acciones{
 	private Sound hit;
 	
 
-	public Nave(int vida, Rectangle hitbox, Sound elim, Texture spr, Sound death, Sound hit) {
-		super(vida, hitbox, elim, spr);
+	public Nave(int x,int y,int vida, Rectangle hitbox, Sound elim, Texture spr, Sound death, Sound hit) {
+		super(x,y,vida, hitbox, elim, spr);
 		this.municion = new Bala(1);
 		this.herido = false;
 		this.destruido = false;
