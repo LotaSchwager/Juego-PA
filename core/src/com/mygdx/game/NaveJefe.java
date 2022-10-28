@@ -59,5 +59,5 @@ public class NaveJefe extends NaveEnemiga{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }
