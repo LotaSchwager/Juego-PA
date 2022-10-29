@@ -19,7 +19,7 @@ public class PantallaMenu implements Screen {
 		camera.setToOrtho(false, 1200, 800);
 	}
 
-	@Override
+
 	public void render(float delta) {
 		ScreenUtils.clear(0, 0, 0.2f, 1);
 
@@ -27,13 +27,13 @@ public class PantallaMenu implements Screen {
 		game.getBatch().setProjectionMatrix(camera.combined);
 
 		game.getBatch().begin();
-		game.getFont().draw(game.getBatch(), "Bienvenido a Space Navigation !", 140, 400);
-		game.getFont().draw(game.getBatch(), "Pincha en cualquier lado o presiona cualquier tecla para comenzar ...", 100, 300);
+		game.getFont().draw(game.getBatch(), "Bienvenido al juego de progamacion!", 140, 400);
+		game.getFont().draw(game.getBatch(), "Presiona cualquier tecla para comenzar ...", 100, 300);
 	
 		game.getBatch().end();
 
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-			Screen ss = new PantallaJuego(game,1,3,0,1,1,10);
+		if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
+			Screen ss = new PantallaJuego(game,1,3,0);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();
