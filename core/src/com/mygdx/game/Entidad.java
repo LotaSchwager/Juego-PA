@@ -1,43 +1,42 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public abstract class Entidad {
 	private int vida;
-	private Rectangle hitbox;
-	private Sound eliminacion;
-	private Sprite aspecto;
-	private int x;
-	private int y;
-	
-	public Entidad(int x,int y,int vida, Rectangle hitbox, Sound elim, Texture spr){
-		this.x=x;
-		this.y=y;
-		this.vida = vida;
-		this.hitbox = hitbox;
-		this.eliminacion = elim;
-		this.aspecto = new Sprite(spr);
-	}
-	
-	public abstract void pintarEntidad();
-	public abstract void destruirEntidad();
-	
-	public int getVida() {
-		return vida;
-	}
-	
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
-	
-	public Rectangle getHitbox() {
-		return hitbox;
-	}
-	
-	public void SetHitbox (Rectangle hitbox) {
-		this.hitbox = hitbox;
-	}
+    protected Sprite spr;
+    
+    public Entidad(int x, int y, Texture imagen) {
+    	spr = new Sprite(imagen); 
+    	spr.setPosition(x, y);
+    	spr.setOriginCenter();
+
+    }
+    
+    public int getVida() {
+    	return vida;
+    }
+    
+    
+    public void setVida(int vida) {
+    	this.vida = vida;
+    }
+    
+    public int getX() {
+    	return (int) spr.getX();
+    }
+    
+    public int getY() {
+    	return (int) spr.getY();
+    }
+    
+    
+    public abstract void draw(SpriteBatch batch);
+    
+    public abstract void dispose();
+    
+
+
 }

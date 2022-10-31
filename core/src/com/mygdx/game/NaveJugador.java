@@ -1,68 +1,50 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 
-public class NaveJugador extends Nave {
-	private int puntaje;
-
-	public NaveJugador(int x,int y,int vida, Rectangle hitbox, Sound elim, Texture spr, Sound death, Sound hit) {
-		super(x,y,vida, hitbox, elim, spr, death, hit);
-		this.puntaje = 0;
-	}
-
-	@Override
-	public void disparo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movimiento(Input entrada) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movIzq() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movDer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void pintarEntidad() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void destruirEntidad() {
-		// TODO Auto-generated method stub
-		
+public class NaveJugador extends Nave{
+	int puntaje = 0;
+	int speed = 300;
+	
+	public NaveJugador(int x, int y, Texture imagen) {
+		super(x,y,imagen);
 	}
 	
 	public int getPuntaje() {
-		return this.puntaje;
+		return puntaje;
+	}
+	
+	public void setPuntaje(int puntaje) {
+		this.puntaje = puntaje;
 	}
 
+
 	@Override
-	public void disparo(Input entrada) {
+	public void dispose() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
+	public void draw(SpriteBatch batch) {
+		movimiento();
+		spr.draw(batch);
+		
+	}
+
 	public void movimiento() {
-		// TODO Auto-generated method stub
+		
+		
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) spr.setX(spr.getX()- Gdx.graphics.getDeltaTime() * speed);
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) spr.setX(spr.getX()+ Gdx.graphics.getDeltaTime()* speed);
 		
 	}
+
+
 
 }
