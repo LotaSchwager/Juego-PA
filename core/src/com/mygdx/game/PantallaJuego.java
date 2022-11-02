@@ -19,7 +19,7 @@ public class PantallaJuego implements Screen {
 	private OrthographicCamera camera;	
 	private SpriteBatch batch;
 	private NaveJugador naveP;
-
+	private NaveEnemiga naveE;
 	
 
 
@@ -29,7 +29,10 @@ public class PantallaJuego implements Screen {
 		batch = game.getBatch();
 		camera = new OrthographicCamera();	
 		camera.setToOrtho(false, 800, 640);
-		naveP = new NaveJugador(Gdx.graphics.getWidth()/2,30,new Texture (Gdx.files.internal("Mainship3.png")));
+		naveP = new NaveJugador(Gdx.graphics.getWidth()/2,30,new Texture (Gdx.files.internal("playerShip.png")));
+		naveE = new NaveEnemiga(Gdx.graphics.getWidth()/2,30,new Texture (Gdx.files.internal("Mainship3.png")));
+		
+		
 		
 	}
     
@@ -44,6 +47,7 @@ public class PantallaJuego implements Screen {
           batch.begin();
 		  dibujaEncabezado();
 		  naveP.draw(batch);
+		  naveE.draw(batch);
    
 	      batch.end();
 
