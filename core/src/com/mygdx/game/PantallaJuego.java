@@ -30,7 +30,7 @@ public class PantallaJuego implements Screen {
 		camera = new OrthographicCamera();	
 		camera.setToOrtho(false, 800, 640);
 		naveP = new NaveJugador(Gdx.graphics.getWidth()/2,30,new Texture (Gdx.files.internal("playerShip.png")));
-		naveE = new NaveEnemiga(Gdx.graphics.getWidth()/2,30,new Texture (Gdx.files.internal("Mainship3.png")));
+		naveE = new NaveEnemiga(Gdx.graphics.getWidth()/2,700,new Texture (Gdx.files.internal("Mainship3.png")));
 		
 		
 		

@@ -1,13 +1,14 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class NaveEnemiga extends Nave{
 
 	private int puntaje = 0;
-	private float speedX;
-	private float speedY;
+	private float speedX = 5f;
+	private float speedY = -10f;
 	
 	public NaveEnemiga(int x, int y, Texture tx) {
 		super(x, y, tx);
@@ -20,8 +21,12 @@ public class NaveEnemiga extends Nave{
 	}
 
 	public void movimiento(){
-		spr.setX(100);
-		spr.setY(100);	
+		spr.setX(spr.getX()+speedX);
+		if(spr.getX() < 0 || spr.getX() + spr.getWidth() > Gdx.graphics.getWidth()) {
+			speedX*=-1; 
+			spr.setY(spr.getY()+speedY);
+		}
+			
 	}
 
 	public int getPuntaje() {
