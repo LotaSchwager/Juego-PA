@@ -40,8 +40,9 @@ public class NaveJugador extends Nave{
 	public void movimiento() {
 		
 		
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) spr.setX(spr.getX()- Gdx.graphics.getDeltaTime() * speed);
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) spr.setX(spr.getX()+ Gdx.graphics.getDeltaTime()* speed);
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && spr.getX() > 0) spr.setX(spr.getX()- Gdx.graphics.getDeltaTime() * speed);
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && spr.getX() + spr.getWidth() < Gdx.graphics.getWidth()) spr.setX(spr.getX()+ Gdx.graphics.getDeltaTime()* speed);
+
 		
 	}
 
