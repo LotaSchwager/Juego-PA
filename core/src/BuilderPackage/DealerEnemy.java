@@ -1,10 +1,10 @@
 package BuilderPackage;
 
 public class DealerEnemy {
-	
+
 	public void createLancelot(Builder builder) {
 		builder.setEnemyType(EnemyType.LANCELOT);
-		
+
 		builder.setPuntaje(10);
 		builder.setSpeedX(0);
 		builder.setSpeedY(1);
@@ -13,10 +13,10 @@ public class DealerEnemy {
 		builder.setX(0);
 		builder.setY(0);
 	}
-	
+
 	public void createBaronRojo(Builder builder) {
 		builder.setEnemyType(EnemyType.BARONROJO);
-		
+
 		builder.setPuntaje(10);
 		builder.setSpeedX(0);
 		builder.setSpeedY(1);

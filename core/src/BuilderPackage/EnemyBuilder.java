@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.NaveEnemiga;
 
 public class EnemyBuilder implements Builder {
-	
+
 	private int vida;
 	private EnemyType enemytype;
 	private float speedX;
@@ -13,33 +13,50 @@ public class EnemyBuilder implements Builder {
 	private int x;
 	private int y;
 	private Texture tx;
-	
+	private Texture disparo;
+
 	@Override
-	public void setEnemyType(EnemyType et) {this.enemytype = et;}
-	
+	public void setEnemyType(EnemyType et) {
+		this.enemytype = et;
+	}
+
 	@Override
-	public void setPuntaje(int puntaje) {this.puntaje = puntaje;}
-	
+	public void setPuntaje(int puntaje) {
+		this.puntaje = puntaje;
+	}
+
 	@Override
-	public void setSpeedX(float sx) {this.speedX = sx;}
-	
+	public void setSpeedX(float sx) {
+		this.speedX = sx;
+	}
+
 	@Override
-	public void setSpeedY(float sy) {this.speedY = sy;}
-	
+	public void setSpeedY(float sy) {
+		this.speedY = sy;
+	}
+
 	@Override
-	public void setX(int x) {this.x = x;}
-	
+	public void setX(int x) {
+		this.x = x;
+	}
+
 	@Override
-	public void setY(int y) {this.y = y;}
-	
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	@Override
-	public void setVida(int vida) {this.vida = vida;}
-	
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
 	@Override
-	public void setTexture(Texture tx) {this.tx = tx;}
-	
+	public void setTexture(Texture tx) {
+		this.tx = tx;
+	}
+
 	public NaveEnemiga getEnemy() {
-		return new NaveEnemiga(x,y,tx,vida,puntaje,speedX,speedY,enemytype);
+		return new NaveEnemiga(x, y, vida, puntaje, speedX, speedY, enemytype, disparo, tx);
 	}
 
 }
