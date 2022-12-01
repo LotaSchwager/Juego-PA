@@ -54,6 +54,9 @@ public class EnemyBuilder implements Builder {
 	public void setTexture(Texture tx) {
 		this.tx = tx;
 	}
+	
+	@Override
+	public void setDisparo(Texture disp) {this.disparo = disp;}
 
 	public NaveEnemiga getEnemy() {
 		return new NaveEnemiga(x, y, vida, puntaje, speedX, speedY, enemytype, disparo, tx);

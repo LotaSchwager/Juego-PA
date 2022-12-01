@@ -12,4 +12,5 @@ public interface Builder {
 	void setY(int y);
 	void setVida(int vida);
 	void setTexture(Texture tx);
+	void setDisparo(Texture disp);
 }
