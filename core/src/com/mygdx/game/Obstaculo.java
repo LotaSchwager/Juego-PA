@@ -11,8 +11,8 @@ public class Obstaculo extends Entidad {
 	private int velY;
 	private int magnitudVel;
 
-	public Obstaculo(int x,int y,Texture spr,int vida,int velY, int size, int mag){
-		super(x,y,spr,vida);
+	public Obstaculo(int x,int y,int vida,int velY, int size, int mag,Texture spr){
+		super(x,y,vida,spr);
 		
         /*validar que borde de esfera no quede fuera
     	if (x-size < 0) setX(x+size);
@@ -44,21 +44,15 @@ public class Obstaculo extends Entidad {
 	public void colicionEntidad(Entidad ent) {}
 
 	@Override
-	public void draw(SpriteBatch batch) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Rectangle getArea() {
+	public void draw(SpriteBatch batch, float time) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 }

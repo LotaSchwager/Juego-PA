@@ -11,6 +11,7 @@ public class SpaceNavigation extends Game {
 	private BitmapFont font;
 	private int highScore;
 	
+	
 
 	public void create () {
 		highScore = 0;
@@ -22,8 +23,9 @@ public class SpaceNavigation extends Game {
 	}
 
 
-	public void render() {
+	public void render(float delta) {
 		super.render(); // important!
+		
 	}
 
 	
