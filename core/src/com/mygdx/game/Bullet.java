@@ -11,7 +11,7 @@ public class Bullet extends Entidad {
 	private int cadencia;
 
 	public Bullet(int x, int y, int vida, int xSpeed, int ySpeed, Texture tx) {
-		super(x, y, vida, tx);
+		super(x, y, vida, tx,null);
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
 	}

@@ -11,8 +11,8 @@ public class Obstaculo extends Entidad {
 	private int velY;
 	private int magnitudVel;
 
-	public Obstaculo(int x,int y,int vida,int velY, int size, int mag,Texture spr){
-		super(x,y,vida,spr);
+	public Obstaculo(int x,int y,int vida,int velY, int size, int mag,Texture spr,Sound destroy){
+		super(x,y,vida,spr,destroy);
 		
         /*validar que borde de esfera no quede fuera
     	if (x-size < 0) setX(x+size);

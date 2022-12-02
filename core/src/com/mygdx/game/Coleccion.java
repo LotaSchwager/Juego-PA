@@ -33,11 +33,11 @@ public class Coleccion {
 		coleccion.add(e);
 	}
 
-	public static void checkMultipleColition(Coleccion jefe, Coleccion objetivo) {
+	public void checkMultipleColition( Coleccion objetivo) {
 		// la primera deberia tener un parametro bullet o almenos una funcion
 		// checkcolition
-		for (int i = 0; i < jefe.getsize(); i++) {
-			Bullet aux = (Bullet) jefe.getColection(i);
+		for (int i = 0; i < this.getsize(); i++) {
+			Bullet aux = (Bullet) this.getColection(i);
 			for (int j = 0; j < objetivo.getsize(); j++) {
 				aux.checkCollision(objetivo.getColection(j));
 			}

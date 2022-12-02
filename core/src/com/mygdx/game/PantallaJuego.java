@@ -31,7 +31,8 @@ public class PantallaJuego implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 640);
 		naveP = new NaveJugador(Gdx.graphics.getWidth() / 2, 30, 1, new Texture(Gdx.files.internal("Rocket2.png")),
-				new Texture(Gdx.files.internal("playerShip.png")));
+				new Texture(Gdx.files.internal("playerShip.png")),null,null);
+		naveP.setCadencia(600);
 		control = new EnemyControl(50);
 	}
 

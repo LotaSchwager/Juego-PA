@@ -1,6 +1,8 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -14,12 +16,10 @@ public class NaveEnemiga extends Nave {
 	private int puntaje;
 	private float speedX;
 	private float speedY;
-	private int cadencia = 0;
-	private Coleccion balas = new Coleccion();
 
 	public NaveEnemiga(int x, int y, int vida, int puntaje, float sx, float sy, EnemyType et, Texture disparo,
-			Texture tx) {
-		super(x, y, vida, disparo, tx);
+			Texture tx,Sound destroy,Sound shoot) {
+		super(x, y, vida, disparo, tx,destroy,shoot);
 		this.puntaje = puntaje;
 		this.speedX = sx;
 		this.speedY = sy;
@@ -78,17 +78,13 @@ public class NaveEnemiga extends Nave {
 
 	@Override
 	public void disparo(float time) {
-		Bullet aux = new Bullet(getX() + 10, getY() + 10, 1, 0, -15, getDisparo());
-		
-		if (time != cadencia) {
-			if (((time * 10000000) % 10) % 2 == 0 && cadencia >= 65) {
+		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,-15,getDisparo());
+		if(time!=Tanterior) {
+			if((time/100) % cadencia== 0) {
 				balas.addColection(aux);
-				cadencia = 0;
-			} else {
-				cadencia++;
 			}
-
 		}
+		Tanterior=time;
 	}
 
 	@Override

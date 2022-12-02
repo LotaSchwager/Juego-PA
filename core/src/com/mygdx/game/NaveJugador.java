@@ -1,6 +1,4 @@
 package com.mygdx.game;
-import java.util.Date;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
@@ -11,16 +9,9 @@ import com.badlogic.gdx.math.MathUtils;
 public class NaveJugador extends Nave{
 	private int puntaje = 0;
 	private int speed = 300;
-	private float Tanterior=0;
-	private Coleccion balas = new Coleccion();
 	
-	public NaveJugador(int x, int y,int vida,Texture disparo,Texture imagen) {
-		super(x,y,vida,disparo,imagen);
-	}
-	
-	public void setCadencia(float cadencia) {
-		
-		this.cadencia=cadencia/60;
+	public NaveJugador(int x, int y,int vida,Texture disparo,Texture imagen,Sound destroy,Sound shoot) {
+		super(x,y,vida,disparo,imagen,destroy,shoot);
 	}
 	
 	public int getPuntaje() {
@@ -50,7 +41,7 @@ public class NaveJugador extends Nave{
 		disparo(time);
 		
 		balas.DrawColection(batch,time);
-		Coleccion.checkMultipleColition(balas, enemigos);
+		balas.checkMultipleColition(enemigos);
 		spr.draw(batch);
 	}
 	
@@ -58,7 +49,7 @@ public class NaveJugador extends Nave{
 		
 		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,15,getDisparo());
 		if(time!=Tanterior) {
-			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && time/10 % 1== 0) {
+			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && ( ((time/100)/cadencia) % 1 == 0 )) {
 				balas.addColection(aux);
 			}else if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
 				balas.addColection(aux);
