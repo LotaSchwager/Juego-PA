@@ -55,4 +55,10 @@ public class Obstaculo extends Entidad {
 		
 	}
 
+	@Override
+	public void draw(SpriteBatch batch, float time, Coleccion enemigos) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

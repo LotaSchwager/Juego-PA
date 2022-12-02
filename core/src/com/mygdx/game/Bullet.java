@@ -32,10 +32,17 @@ public class Bullet extends Entidad {
 		update();
 
 	}
+	public void draw(SpriteBatch batch, float time, Coleccion enemigos) {
+		System.out.println("WARN:esta entidad no requiere de coleccion");
+		this.draw(batch, time);
+		
+		
+	}
 
 	public boolean checkCollision(Entidad obst) {
 		if (spr.getBoundingRectangle().overlaps(obst.getArea())) {
-			// Se destruyen ambos
+			this.setKill(true);
+			obst.setKill(true);
 			return true;
 
 		}
@@ -45,5 +52,6 @@ public class Bullet extends Entidad {
 	public void dispose() {
 
 	}
+	
 
 }

@@ -48,8 +48,8 @@ public class PantallaJuego implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		dibujaEncabezado();
-		naveP.draw(batch, time);
 		control.mostrar(batch, time);
+		naveP.draw(batch, time,control.getEscuadra());
 
 		batch.end();
 

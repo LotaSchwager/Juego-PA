@@ -12,9 +12,7 @@ public class EnemyControl {
 	private Coleccion lancelot = new Coleccion();
 
 	public EnemyControl(int cantidadEnemigos) {
-		if (!(cantidadEnemigos % 2 == 0)) {
-			cantidadEnemigos++;
-		}
+		
 		int cont = 0;
 		int y = 0;
 		int x = 0;
@@ -46,6 +44,13 @@ public class EnemyControl {
 			x++;
 		}
 	}
+	public Coleccion getEscuadra() {
+		return lancelot;
+	}
+	public void setEscuadra(Coleccion lancelot) {
+		this.lancelot=lancelot;
+	}
+
 
 	public boolean isFinished() {
 		return this.allEnemyDestroyed;

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 public abstract class Nave extends Entidad implements Acciones{
     
 	private Texture disparo;
+	protected float cadencia=1;
 	
     public Nave(int x, int y,int vida,Texture disparo, Texture tx) {
     	super(x,y,vida,tx);

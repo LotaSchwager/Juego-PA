@@ -56,7 +56,8 @@ public abstract class Entidad {
 		spr.setY(spr.getY()+y);
 	}
 
-	public abstract void draw(SpriteBatch batch, float time);
+	public abstract void draw(SpriteBatch batch,float time);
+	public abstract void draw(SpriteBatch batch,float time,Coleccion enemigos);
 
 	public abstract void dispose();
 

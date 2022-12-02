@@ -98,5 +98,12 @@ public class NaveEnemiga extends Nave {
 		balas.DrawColection(batch, time);
 		spr.draw(batch);
 	}
+	
+	public void draw(SpriteBatch batch, float time, Coleccion enemigos) {
+		System.out.println("WARN:esta entidad no requiere de coleccion");
+		this.draw(batch, time);
+		
+		
+	}
 
 }

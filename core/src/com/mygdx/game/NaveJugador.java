@@ -18,6 +18,11 @@ public class NaveJugador extends Nave{
 		super(x,y,vida,disparo,imagen);
 	}
 	
+	public void setCadencia(float cadencia) {
+		
+		this.cadencia=cadencia/60;
+	}
+	
 	public int getPuntaje() {
 		return puntaje;
 	}
@@ -32,23 +37,28 @@ public class NaveJugador extends Nave{
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
 	public void draw(SpriteBatch batch,float time) {
 		movimiento();
 		disparo(time);
 		balas.DrawColection(batch,time);
 		spr.draw(batch);
+	}
+
+	@Override
+	public void draw(SpriteBatch batch,float time,Coleccion enemigos) {
+		movimiento();
+		disparo(time);
 		
-			
-		
+		balas.DrawColection(batch,time);
+		Coleccion.checkMultipleColition(balas, enemigos);
+		spr.draw(batch);
 	}
 	
 	public void disparo(float time) {
 		
 		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,15,getDisparo());
 		if(time!=Tanterior) {
-			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && time/25%1==0) {
+			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && time/10 % 1== 0) {
 				balas.addColection(aux);
 			}else if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
 				balas.addColection(aux);
