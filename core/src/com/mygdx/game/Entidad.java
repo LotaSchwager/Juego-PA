@@ -17,6 +17,15 @@ public abstract class Entidad {
 		spr.setPosition(x, y);
 		spr.setOriginCenter();
 		this.vida = vida;
+		this.destroy = destroy;
+	}
+
+	public Sound getDestroy() {
+		return destroy;
+	}
+
+	public void setDestroy(Sound destroy) {
+		this.destroy = destroy;
 	}
 
 	public int getVida() {

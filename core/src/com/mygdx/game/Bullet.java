@@ -41,8 +41,8 @@ public class Bullet extends Entidad {
 
 	public boolean checkCollision(Entidad obst) {
 		if (spr.getBoundingRectangle().overlaps(obst.getArea())) {
-			this.setKill(true);
-			obst.setKill(true);
+			this.dispose();
+			obst.dispose();
 			return true;
 
 		}
@@ -50,7 +50,7 @@ public class Bullet extends Entidad {
 	}
 
 	public void dispose() {
-
+		this.setKill(true);
 	}
 	
 

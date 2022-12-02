@@ -54,6 +54,9 @@ public class NaveEnemiga extends Nave {
 
 	@Override
 	public void dispose() {
+		this.setKill(true);
+		Sound shoot = getDestroy();
+		shoot.play();
 	}
 
 	public float getSpeedY() {
