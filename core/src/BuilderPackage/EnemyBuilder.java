@@ -1,5 +1,6 @@
 package BuilderPackage;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.NaveEnemiga;
 
@@ -14,6 +15,8 @@ public class EnemyBuilder implements Builder {
 	private int y;
 	private Texture tx;
 	private Texture disparo;
+	private Sound destroy;
+	private Sound shoot;
 
 	@Override
 	public void setEnemyType(EnemyType et) {
@@ -59,7 +62,7 @@ public class EnemyBuilder implements Builder {
 	public void setDisparo(Texture disp) {this.disparo = disp;}
 
 	public NaveEnemiga getEnemy() {
-		return new NaveEnemiga(x, y, vida, puntaje, speedX, speedY, enemytype, disparo, tx);
+		return new NaveEnemiga(x, y, vida, puntaje, speedX, speedY, enemytype, disparo, tx, destroy,shoot);
 	}
 
 }
