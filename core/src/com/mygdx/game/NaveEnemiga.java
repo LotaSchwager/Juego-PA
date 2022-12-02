@@ -16,14 +16,17 @@ public class NaveEnemiga extends Nave {
 	private int puntaje;
 	private float speedX;
 	private float speedY;
+	private int cadencia;
+	private int tiempo = 0;
 
-	public NaveEnemiga(int x, int y, int vida, int puntaje, float sx, float sy, EnemyType et, Texture disparo,
+	public NaveEnemiga(int x, int y, int vida, int puntaje,int cadencia ,float sx, float sy, EnemyType et, Texture disparo,
 			Texture tx,Sound destroy,Sound shoot) {
 		super(x, y, vida, disparo, tx,destroy,shoot);
 		this.puntaje = puntaje;
 		this.speedX = sx;
 		this.speedY = sy;
 		this.enemytype = et;
+		this.cadencia = cadencia;
 	}
 
 	public void draw(SpriteBatch batch) {
@@ -78,16 +81,20 @@ public class NaveEnemiga extends Nave {
 	public Rectangle getArea() {
 		return this.getSpr().getBoundingRectangle();
 	}
+	
+	public void sumCadencia(int cadencia) {this.cadencia += cadencia;}
 
 	@Override
 	public void disparo(float time) {
 		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,-15,getDisparo());
-		if(time!=Tanterior) {
-			if((time/100) % cadencia== 0) {
+		if(time!=tiempo) {
+			if(((time * 10000000) % 10) % 2 == 0 && tiempo >= cadencia) {
 				balas.addColection(aux);
+				tiempo = 0;
+			}else {
+				tiempo++;
 			}
 		}
-		Tanterior=time;
 	}
 
 	@Override
@@ -101,8 +108,6 @@ public class NaveEnemiga extends Nave {
 	public void draw(SpriteBatch batch, float time, Coleccion enemigos) {
 		System.out.println("WARN:esta entidad no requiere de coleccion");
 		this.draw(batch, time);
-		
-		
 	}
 
 }

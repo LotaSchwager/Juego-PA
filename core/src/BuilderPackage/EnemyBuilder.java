@@ -17,6 +17,7 @@ public class EnemyBuilder implements Builder {
 	private Texture disparo;
 	private Sound destroy;
 	private Sound shoot;
+	private int cadencia;
 
 	@Override
 	public void setEnemyType(EnemyType et) {
@@ -64,9 +65,11 @@ public class EnemyBuilder implements Builder {
 	public void setDestroy(Sound destroy) {
 		this.destroy = destroy;
 	}
+	
+	public void setCadencia(int cadencia) {this.cadencia= cadencia;}
 
 	public NaveEnemiga getEnemy() {
-		return new NaveEnemiga(x, y, vida, puntaje, speedX, speedY, enemytype, disparo, tx, destroy,shoot);
+		return new NaveEnemiga(x, y, vida, puntaje,cadencia ,speedX, speedY, enemytype, disparo, tx, destroy,shoot);
 	}
 
 }

@@ -1,10 +1,9 @@
 package com.mygdx.game;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import BuilderPackage.DealerEnemy;
 import BuilderPackage.EnemyBuilder;
+import java.util.Random;
 
 public class EnemyControl {
 
@@ -17,6 +16,7 @@ public class EnemyControl {
 		int y = 0;
 		int x = 0;
 		for (int i = 0; i < cantidadEnemigos; i++) {
+			int cadencia_aparte = this.numeroRandom();
 
 			if (cont == 10) {
 
@@ -38,6 +38,7 @@ public class EnemyControl {
 
 			enemy.setX(x * 45);
 			enemy.setY(y);
+			enemy.sumCadencia(cadencia_aparte);
 
 			lancelot.addColection(enemy);
 			cont++;
@@ -59,6 +60,15 @@ public class EnemyControl {
 	public void mostrar(SpriteBatch batch, float delta) {
 		lancelot.DrawColection(batch, delta);
 
+	}
+	
+	public int numeroRandom() {
+		int min = 85;
+		int max = 500;
+
+		Random random = new Random();
+
+		return random.nextInt(max + min) + min;
 	}
 
 }

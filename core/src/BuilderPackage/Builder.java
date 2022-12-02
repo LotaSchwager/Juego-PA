@@ -15,4 +15,5 @@ public interface Builder {
 	void setTexture(Texture tx);
 	void setDisparo(Texture disp);
 	void setDestroy(Sound des);
+	void setCadencia(int cadencia);
 }

@@ -17,6 +17,7 @@ public class DealerEnemy {
 		builder.setY(700);
 		builder.setDisparo(new Texture (Gdx.files.internal("Rocket2.png")));
 		builder.setDestroy(Gdx.audio.newSound(Gdx.files.internal("hurt.ogg")));
+		builder.setCadencia(95);
 	}
 
 	public void createBaronRojo(Builder builder) {
@@ -30,5 +31,6 @@ public class DealerEnemy {
 		builder.setX(0);
 		builder.setY(0);
 		builder.setDisparo(null);
+		builder.setCadencia(85);
 	}
 }
