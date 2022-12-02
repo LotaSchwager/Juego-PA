@@ -50,10 +50,15 @@ public class NaveJugador extends Nave{
 		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,15,getDisparo());
 		if(time!=Tanterior) {
 			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && ( ((time/100)/cadencia) % 1 == 0 )) {
+				Sound shoot = getShoot();
+				shoot.play();
 				balas.addColection(aux);
 			}else if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
 				balas.addColection(aux);
 				Tanterior++;
+				Sound shoot = getShoot();
+				shoot.play();
+				
 			}
 		}
 		Tanterior=time;

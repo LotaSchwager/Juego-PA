@@ -1,5 +1,6 @@
 package BuilderPackage;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 
 public interface Builder {
@@ -13,4 +14,5 @@ public interface Builder {
 	void setVida(int vida);
 	void setTexture(Texture tx);
 	void setDisparo(Texture disp);
+	void setDestroy(Sound des);
 }

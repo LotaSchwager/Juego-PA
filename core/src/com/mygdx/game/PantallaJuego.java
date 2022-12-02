@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
+
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
@@ -31,7 +32,7 @@ public class PantallaJuego implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 640);
 		naveP = new NaveJugador(Gdx.graphics.getWidth() / 2, 30, 1, new Texture(Gdx.files.internal("Rocket2.png")),
-				new Texture(Gdx.files.internal("playerShip.png")),null,null);
+				new Texture(Gdx.files.internal("playerShip.png")),null,Gdx.audio.newSound(Gdx.files.internal("pop-sound.mp3")));
 		naveP.setCadencia(600);
 		control = new EnemyControl(50);
 	}

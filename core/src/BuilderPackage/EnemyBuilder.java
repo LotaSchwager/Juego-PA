@@ -60,6 +60,10 @@ public class EnemyBuilder implements Builder {
 	
 	@Override
 	public void setDisparo(Texture disp) {this.disparo = disp;}
+	
+	public void setDestroy(Sound destroy) {
+		this.destroy = destroy;
+	}
 
 	public NaveEnemiga getEnemy() {
 		return new NaveEnemiga(x, y, vida, puntaje, speedX, speedY, enemytype, disparo, tx, destroy,shoot);

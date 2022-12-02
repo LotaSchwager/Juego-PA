@@ -30,4 +30,13 @@ public abstract class Nave extends Entidad implements Acciones {
 		return disparo;
 	}
 
+	public Sound getShoot() {
+		return shoot;
+	}
+
+	public void setShoot(Sound shoot) {
+		this.shoot = shoot;
+	}
+
+	
 }
