@@ -10,7 +10,7 @@ public class DealerEnemy {
 
 		builder.setPuntaje(10);
 		builder.setSpeedX(5f);
-		builder.setSpeedY(-10f);
+		builder.setSpeedY(-30f);
 		builder.setTexture(new Texture (Gdx.files.internal("MainShip3.png")));
 		builder.setVida(1);
 		builder.setX(10);
