@@ -44,9 +44,16 @@ public abstract class Entidad {
 	public int getX() {
 		return (int) spr.getX();
 	}
+	
+	public void setX(int x) {
+		spr.setX(spr.getX()+x);
+	}
 
 	public int getY() {
 		return (int) spr.getY();
+	}
+	public void setY(int y) {
+		spr.setY(spr.getY()+y);
 	}
 
 	public abstract void draw(SpriteBatch batch, float time);

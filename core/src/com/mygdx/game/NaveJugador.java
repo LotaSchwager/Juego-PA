@@ -48,8 +48,6 @@ public class NaveJugador extends Nave{
 		
 		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,15,getDisparo());
 		if(time!=Tanterior) {
-			System.out.println(time/100);
-    	
 			if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && time/25%1==0) {
 				balas.addColection(aux);
 			}else if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){

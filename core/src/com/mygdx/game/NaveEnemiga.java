@@ -78,16 +78,16 @@ public class NaveEnemiga extends Nave {
 
 	@Override
 	public void disparo(float time) {
-		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,-15,getDisparo());
-		System.out.println(time);
-		if(time!=cadencia) {
-			if(((time * 10000000) % 10) % 2 == 0 && cadencia >= 65) {
+		Bullet aux = new Bullet(getX() + 10, getY() + 10, 1, 0, -15, getDisparo());
+		
+		if (time != cadencia) {
+			if (((time * 10000000) % 10) % 2 == 0 && cadencia >= 65) {
 				balas.addColection(aux);
 				cadencia = 0;
-			}else {
+			} else {
 				cadencia++;
 			}
-			
+
 		}
 	}
 
@@ -95,7 +95,7 @@ public class NaveEnemiga extends Nave {
 	public void draw(SpriteBatch batch, float time) {
 		movimiento();
 		disparo(time);
-		balas.DrawColection(batch,time);
+		balas.DrawColection(batch, time);
 		spr.draw(batch);
 	}
 
