@@ -5,37 +5,23 @@ import com.badlogic.gdx.graphics.Texture;
 
 public abstract class Nave extends Entidad implements Acciones {
 
-	private Texture disparo;
-	protected float cadencia = 1;
-	protected float Tanterior = 0;
-	private Sound shoot;
+	
+	protected Bullet disparo;
+	protected float tanterior = 0;
+	
 	protected Coleccion balas = new Coleccion();
 
-	public Nave(int x, int y, int vida, Texture disparo, Texture tx,Sound destroy,Sound shoot) {
+	public Nave(int x, int y, int vida, Texture tx,Sound destroy,Bullet disparo) {
 		super(x, y, vida, tx,destroy);
 		this.disparo = disparo;
-		this.shoot= shoot;
 	}
 
-	public void setDisparo(Texture disparo) {
+	public Bullet getDisparo() {
+		Bullet aux=new Bullet(disparo.getVida(),disparo.getxSpeed(),disparo.getySpeed(),disparo.getSpr().getTexture(),disparo.getShoot());
+		return aux;
+	}
+	public void setDisparo(Bullet disparo) {
 		this.disparo = disparo;
-	}
-
-	public void setCadencia(float cadencia) {
-
-		this.cadencia = 60 / cadencia;
-	}
-
-	public Texture getDisparo() {
-		return disparo;
-	}
-
-	public Sound getShoot() {
-		return shoot;
-	}
-
-	public void setShoot(Sound shoot) {
-		this.shoot = shoot;
 	}
 
 	

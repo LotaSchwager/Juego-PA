@@ -16,17 +16,14 @@ public class NaveEnemiga extends Nave {
 	private int puntaje;
 	private float speedX;
 	private float speedY;
-	private int cadencia;
-	private int tiempo = 0;
 
-	public NaveEnemiga(int x, int y, int vida, int puntaje,int cadencia ,float sx, float sy, EnemyType et, Texture disparo,
-			Texture tx,Sound destroy,Sound shoot) {
-		super(x, y, vida, disparo, tx,destroy,shoot);
+	public NaveEnemiga(int x, int y, int vida, int puntaje, float sx, float sy, EnemyType et, Texture tx, Sound destroy,
+			Bullet disparo) {
+		super(x, y, vida, tx, destroy, disparo);
 		this.puntaje = puntaje;
 		this.speedX = sx;
 		this.speedY = sy;
 		this.enemytype = et;
-		this.cadencia = cadencia;
 	}
 
 	public void draw(SpriteBatch batch) {
@@ -55,13 +52,6 @@ public class NaveEnemiga extends Nave {
 		this.puntaje = puntaje;
 	}
 
-	@Override
-	public void dispose() {
-		this.setKill(true);
-		Sound shoot = getDestroy();
-		shoot.play();
-	}
-
 	public float getSpeedY() {
 		return speedY;
 	}
@@ -78,36 +68,40 @@ public class NaveEnemiga extends Nave {
 		this.speedX = speedX;
 	}
 
+	@Override
+	public void dispose() {
+		this.setKill(true);
+		Sound shoot = getDestroy();
+		shoot.play();
+	}
+
 	public Rectangle getArea() {
 		return this.getSpr().getBoundingRectangle();
 	}
-	
-	public void sumCadencia(int cadencia) {this.cadencia += cadencia;}
 
 	@Override
 	public void disparo(float time) {
-		Bullet aux = new Bullet(getX()+10,getY()+10,1,0,-15,getDisparo());
-		if(time!=tiempo) {
-			if(((time * 10000000) % 10) % 2 == 0 && tiempo >= cadencia) {
-				balas.addColection(aux);
-				tiempo = 0;
-			}else {
-				tiempo++;
-			}
-		}
+		Bullet aux = this.getDisparo();
+		aux.setXY(this.getX(), this.getY());
+		
+		balas.addColection(aux); 
+		System.out.println("shoot");
 	}
 
 	@Override
 	public void draw(SpriteBatch batch, float time) {
 		movimiento();
-		disparo(time);
 		balas.DrawColection(batch, time);
 		spr.draw(batch);
 	}
-	
+
 	public void draw(SpriteBatch batch, float time, Coleccion enemigos) {
 		System.out.println("WARN:esta entidad no requiere de coleccion");
 		this.draw(batch, time);
+	}
+	
+	public float getCadencia() {
+		return disparo.getCadencia();
 	}
 
 }

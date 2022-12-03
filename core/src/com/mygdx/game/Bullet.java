@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -8,12 +9,31 @@ public class Bullet extends Entidad {
 
 	private int xSpeed;
 	private int ySpeed;
-	private int cadencia;
+	private float cadencia;
+	private Sound shoot;
+	private boolean activo=false;
 
-	public Bullet(int x, int y, int vida, int xSpeed, int ySpeed, Texture tx) {
-		super(x, y, vida, tx,null);
+	public Bullet(int vida, int xSpeed, int ySpeed, Texture tx, Sound shoot) {
+		super(0, 0, vida, tx, null);
 		this.xSpeed = xSpeed;
 		this.ySpeed = ySpeed;
+		this.setShoot(shoot);
+	}
+
+	public float getCadencia() {
+		return cadencia;
+	}
+
+	public void setCadencia(float cadencia) {
+		this.cadencia = cadencia;
+	}
+
+	public Sound getShoot() {
+		return shoot;
+	}
+
+	public void setShoot(Sound shoot) {
+		this.shoot = shoot;
 	}
 
 	public void update() {
@@ -30,13 +50,33 @@ public class Bullet extends Entidad {
 
 		spr.draw(batch);
 		update();
-
+		if(!activo) {
+			shoot.play();
+			activo=true;
+		}
+		
 	}
+
+	public int getxSpeed() {
+		return xSpeed;
+	}
+
+	public void setxSpeed(int xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+
+	public int getySpeed() {
+		return ySpeed;
+	}
+
+	public void setySpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+
 	public void draw(SpriteBatch batch, float time, Coleccion enemigos) {
 		System.out.println("WARN:esta entidad no requiere de coleccion");
 		this.draw(batch, time);
-		
-		
+
 	}
 
 	public boolean checkCollision(Entidad obst) {
@@ -52,6 +92,5 @@ public class Bullet extends Entidad {
 	public void dispose() {
 		this.setKill(true);
 	}
-	
 
 }

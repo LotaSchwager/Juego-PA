@@ -20,10 +20,6 @@ public abstract class Entidad {
 		this.destroy = destroy;
 	}
 
-	public void setSpr(Sprite spr) {
-		this.spr = spr;
-	}
-
 	public Sound getDestroy() {
 		return destroy;
 	}
@@ -70,6 +66,10 @@ public abstract class Entidad {
 
 	public void setY(int y) {
 		spr.setY(spr.getY() + y);
+	}
+	
+	public void setXY(int x,int y) {
+		spr.setPosition(x, y);
 	}
 
 	public abstract void draw(SpriteBatch batch, float time);
