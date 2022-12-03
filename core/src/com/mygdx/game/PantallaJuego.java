@@ -21,9 +21,10 @@ public class PantallaJuego implements Screen {
 	private SpaceNavigation game;
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
-	private NaveJugador naveP;
+	
 	private float time=0;
 	private EnemyControl control;
+	NaveJugador naveP;
 
 	public PantallaJuego(SpaceNavigation game) {
 		this.game = game;
@@ -31,10 +32,11 @@ public class PantallaJuego implements Screen {
 		batch = game.getBatch();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 640);
-		naveP = new NaveJugador(Gdx.graphics.getWidth() / 2, 30, 1, new Texture(Gdx.files.internal("Rocket2.png")),
+		naveP = NaveJugador.getNaveJugador(Gdx.graphics.getWidth() / 2, 30, 1, new Texture(Gdx.files.internal("Rocket2.png")),
 				new Texture(Gdx.files.internal("playerShip.png")),null,Gdx.audio.newSound(Gdx.files.internal("pop-sound.mp3")));
 		naveP.setCadencia(600);
 		control = new EnemyControl(50);
+		
 	}
 
 	public void dibujaEncabezado() {

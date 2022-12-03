@@ -9,10 +9,21 @@ import com.badlogic.gdx.math.MathUtils;
 public class NaveJugador extends Nave{
 	private int puntaje = 0;
 	private int speed = 300;
+		
+	private static NaveJugador naveJugador = null;
 	
-	public NaveJugador(int x, int y,int vida,Texture disparo,Texture imagen,Sound destroy,Sound shoot) {
+	private NaveJugador(int x, int y,int vida,Texture disparo,Texture imagen,Sound destroy,Sound shoot) {
 		super(x,y,vida,disparo,imagen,destroy,shoot);
 	}
+	
+
+	public static NaveJugador getNaveJugador(int x, int y,int vida,Texture disparo,Texture imagen,Sound destroy,Sound shoot) {
+		   
+		if(naveJugador == null) {	
+			naveJugador = new NaveJugador(x,y,vida,disparo,imagen,destroy,shoot);
+		}
+		return naveJugador;
+	   }
 	
 	public int getPuntaje() {
 		return puntaje;

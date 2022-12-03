@@ -20,6 +20,10 @@ public abstract class Entidad {
 		this.destroy = destroy;
 	}
 
+	public void setSpr(Sprite spr) {
+		this.spr = spr;
+	}
+
 	public Sound getDestroy() {
 		return destroy;
 	}
