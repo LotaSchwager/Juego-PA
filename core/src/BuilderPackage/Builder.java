@@ -2,6 +2,7 @@ package BuilderPackage;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.Bullet;
 
 public interface Builder {
 	
@@ -13,7 +14,6 @@ public interface Builder {
 	void setY(int y);
 	void setVida(int vida);
 	void setTexture(Texture tx);
-	void setDisparo(Texture disp);
+	void setDisparo(Bullet disparo);
 	void setDestroy(Sound des);
-	void setCadencia(int cadencia);
 }
