@@ -43,7 +43,7 @@ public class PantallaJuego implements Screen {
 		Pdisp.setCadencia(600);
 		naveP = NaveJugador.getNaveJugador(Gdx.graphics.getWidth() / 2, 30, 1, new Texture(Gdx.files.internal("playerShip.png")),
 				null, Pdisp);
-		control = new EnemyControl(1);
+		control = new EnemyControl(50);
 		
 		
 

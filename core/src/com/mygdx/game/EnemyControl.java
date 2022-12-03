@@ -21,7 +21,7 @@ public class EnemyControl {
 
 			if (cont == 10) {
 
-				y += -30;
+				y += -64;
 				x = 0;
 				double dif = (10 - ((double) cantidadEnemigos - i)) / 2;
 
@@ -37,8 +37,10 @@ public class EnemyControl {
 			dealer.createLancelot(builder);
 			NaveEnemiga enemy = builder.getEnemy();
 
-			enemy.setX(x * 45);
+			enemy.setX(x * 64);
 			enemy.setY(y);
+			
+			enemy.getSpr().setScale(1 ) ;
 
 			lancelot.addColection(enemy);
 			cont++;
@@ -66,7 +68,13 @@ public class EnemyControl {
 		
 		lancelot.DrawColection(batch, time);
 		
-		NaveEnemiga aux = (NaveEnemiga) lancelot.getColection(this.numeroRandom());
+		int tempR=this.numeroRandom();
+		
+		if(tempR==0) {
+			return;
+		}
+		
+		NaveEnemiga aux = (NaveEnemiga) lancelot.getColection(tempR);
 		
 		if (time != tanterior) {
 			
